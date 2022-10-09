@@ -1,8 +1,7 @@
 import express from 'express'
 
-const env = require('dotenv').config({ path: '../development.env' });
 const app = express()
-const port = env.PORT || 3000;
+const port = process.env.PORT || 3000;
 const cors = require('cors')
 const morgan = require('morgan')
 

@@ -1,17 +1,15 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 3000;
-const cors = require('cors')
-const morgan = require('morgan')
-const url = `0.0.0.0:${port}`
+import express from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
 
-app.use(cors())
-app.use(morgan('dev'))
+const app = express();
 
-app.get('/', (req , res) => {
-  res.send('Hello World!')
-} )
+//settings
+app.set('port', process.env.PORT || 4000);
 
-app.listen(url, () => {
-  console.log(`Example app listening on port ${port}`)
-} )
+//middlewares
+app.use(morgan('dev'));
+app.use(cors());
+app.use(express.json());
+
+export default app;

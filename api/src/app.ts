@@ -1,5 +1,4 @@
-import express from 'express'
-
+const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
 const cors = require('cors')
@@ -8,7 +7,7 @@ const morgan = require('morgan')
 app.use(cors())
 app.use(morgan('dev'))
 
-app.get('/', (req:express.Request , res:express.Response) => {
+app.get('/', (req , res) => {
   res.send('Hello World!')
 } )
 
